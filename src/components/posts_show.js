@@ -6,7 +6,7 @@ import {fetchPost} from '../actions'
 class PostsShow extends Component {
 
   render() {
-    posts[this.props.match.params.id]
+
     return (
       <div>
 
@@ -19,7 +19,7 @@ class PostsShow extends Component {
   }
 }
 
-function mapStateToProps({posts}) {
-  return {posts}
+function mapStateToProps({posts}, ownProps) {
+  return {post: posts[ownProps.match.params.id]}
 }
-export default connect(null, {fetchPost}) (PostsShow)
+export default connect(mapStateToProps, {fetchPost}) (PostsShow)
